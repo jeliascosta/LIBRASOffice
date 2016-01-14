@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package LIBRASOffice;
 
 import com.sun.star.comp.helper.BootstrapException;
@@ -541,32 +536,45 @@ public class LIBRASOffice extends javax.swing.JFrame {
                 new LIBRASOffice().setVisible(true);             
             }
         });
-        System.out.println(System.getProperty("user.dir"));
 
+        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/FirstSteps/First_Contact#Getting_Started */
+        
+        /* Inicializar instância local do LibreOffice (bootstrap) a partir do executável soffice encontrado na PATH do sistema, obtendo um contexto global
+           Outra opção seria utilizar a biblioteca BootstrapSocketConnector para se conectar a uma instância do LibreOffice já em execução com executável encontrado no PATH informado    
+           https://wiki.openoffice.org/wiki/Documentation/DevGuide/ProUNO/Java/Transparent_Use_of_Office_UNO_Components */
         XComponentContext xCxt = com.sun.star.comp.helper.Bootstrap.bootstrap();
         //XComponentContext xCxt = BootstrapSocketConnector.bootstrap("C:/Program Files (x86)/LibreOffice 4/program/");
 
         XMultiComponentFactory xSMng = xCxt.getServiceManager();
 
         Object desk = xSMng.createInstanceWithContext("com.sun.star.frame.Desktop", xCxt);
+        
+        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Using_the_Desktop */
         xDesk = UnoRuntime.queryInterface(XDesktop.class, desk);
-                
-        XComponentLoader xCLoader =  (XComponentLoader)UnoRuntime.queryInterface(XComponentLoader.class, desk);
-                
+        
+        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/Spreadsheets/Handling_Spreadsheet_Documents_Files#Creating_and_Loading_Spreadsheet_Documents
+           https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Handling_Documents#Loading_Documents */
+        XComponentLoader xCLoader =  (XComponentLoader)UnoRuntime.queryInterface(XComponentLoader.class, desk);          
         XComponent xDoc = xCLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, null);
 
+        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Component/Frames#Frame_Setup
+          https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Creating_Frames_Manually#Frame_Creation*/
         XFrame dFrame = xDesk.getCurrentFrame();
         while (dFrame == null) dFrame = xDesk.getCurrentFrame();
                 
         XTitle wTitle = UnoRuntime.queryInterface(XTitle.class, dFrame);
         wTitle.setTitle(wTitle.getTitle().replace("Libre", "LIBRAS"));
 
+        /* https://www.openoffice.org/api/docs/common/ref/com/sun/star/frame/XDispatchHelper.html */
         Object disper = xSMng.createInstanceWithContext("com.sun.star.frame.DispatchHelper", xCxt);
         xDHelper = UnoRuntime.queryInterface(XDispatchHelper.class, disper);
+        
+        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Dispatch_Results */
         xDProver = UnoRuntime.queryInterface(XDispatchProvider.class, dFrame);
                 
-        //xDHelper.executeDispatch(xDProver, ".uno:SaveAs", "", 0, null);
-        xTL xTL0 = new xTL(); 
+        /* http://api.libreoffice.org/examples/DevelopersGuide/OfficeDev/TerminationTest/TerminationTest.java 
+           http://api.libreoffice.org/examples/DevelopersGuide/OfficeDev/TerminationTest/TerminateListener.java */
+        xTL xTL0 = new xTL();
         xDesk.addTerminateListener(xTL0);
         synchronized(xTL0){
             try { xTL0.wait(); }
