@@ -1,5 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package LIBRASOffice;
 
+
+import com.sun.star.beans.PropertyValue;
 import com.sun.star.comp.helper.BootstrapException;
 import com.sun.star.frame.XComponentLoader;
 import com.sun.star.frame.XDesktop;
@@ -57,6 +64,11 @@ public class LIBRASOffice extends javax.swing.JFrame {
         PROCURAR = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         SOMAR = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        DINHEIRO = new javax.swing.JButton();
+        PORCENTAGEM = new javax.swing.JButton();
+        NUMERO = new javax.swing.JButton();
+        DATA = new javax.swing.JButton();
 
         jFrame1.setLocation(new java.awt.Point(0, 0));
         jFrame1.setResizable(false);
@@ -105,7 +117,7 @@ public class LIBRASOffice extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GIF240/OPCAO_240.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GIF240/FUNCAO_240.gif"))); // NOI18N
         jLabel1.setToolTipText("");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -116,96 +128,75 @@ public class LIBRASOffice extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
+        REFAZER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/redo.png"))); // NOI18N
         REFAZER.setText("Refazer");
+        REFAZER.setToolTipText("CTRL + Y");
         REFAZER.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                REFAZERMouseEntered(evt);
-            }
-        });
-        REFAZER.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                REFAZERActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                REFAZERMouseClicked(evt);
             }
         });
         getContentPane().add(REFAZER, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 460, -1, -1));
 
+        VOLTAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/undo.png"))); // NOI18N
         VOLTAR.setText("Voltar");
+        VOLTAR.setToolTipText("CTRL + X");
         VOLTAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                VOLTARMouseEntered(evt);
-            }
-        });
-        VOLTAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VOLTARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VOLTARMouseClicked(evt);
             }
         });
         getContentPane().add(VOLTAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 460, -1, -1));
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
+        ABRIR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/open.png"))); // NOI18N
         ABRIR.setText("Abrir Documento");
         ABRIR.setToolTipText("CTRL + O");
         ABRIR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ABRIRMouseEntered(evt);
-            }
-        });
-        ABRIR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ABRIRActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ABRIRMouseClicked(evt);
             }
         });
 
+        NOVO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/new.png"))); // NOI18N
         NOVO.setText("Novo Documento");
         NOVO.setToolTipText("CTRL + N");
-        NOVO.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         NOVO.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                NOVOMouseEntered(evt);
-            }
-        });
-        NOVO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NOVOActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NOVOMouseClicked(evt);
             }
         });
 
+        PDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/pdf.png"))); // NOI18N
         PDF.setText("Gerar PDF");
         PDF.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PDFMouseEntered(evt);
-            }
-        });
-        PDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PDFActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PDFMouseClicked(evt);
             }
         });
 
+        GUARDAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/save.png"))); // NOI18N
         GUARDAR.setText("Guardar Documento");
+        GUARDAR.setToolTipText("CTRL + S");
         GUARDAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                GUARDARMouseEntered(evt);
-            }
-        });
-        GUARDAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GUARDARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GUARDARMouseClicked(evt);
             }
         });
 
+        IMPRIMIR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/print.png"))); // NOI18N
         IMPRIMIR.setText("Imprimir Documento");
         IMPRIMIR.setToolTipText("CTRL + P");
         IMPRIMIR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                IMPRIMIRMouseEntered(evt);
-            }
-        });
-        IMPRIMIR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IMPRIMIRActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IMPRIMIRMouseClicked(evt);
             }
         });
 
@@ -229,69 +220,53 @@ public class LIBRASOffice extends javax.swing.JFrame {
                 .addComponent(NOVO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ABRIR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(GUARDAR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(GUARDAR)
+                .addGap(12, 12, 12)
                 .addComponent(IMPRIMIR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PDF)
-                .addContainerGap())
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Documento", null, jPanel1, "");
 
+        COPIAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/copy.png"))); // NOI18N
         COPIAR.setText("Copiar Texto");
         COPIAR.setToolTipText("CTRL + C");
         COPIAR.setMaximumSize(new java.awt.Dimension(153, 25));
         COPIAR.setMinimumSize(new java.awt.Dimension(153, 25));
         COPIAR.setPreferredSize(new java.awt.Dimension(153, 25));
         COPIAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                COPIARMouseEntered(evt);
-            }
-        });
-        COPIAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                COPIARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                COPIARMouseClicked(evt);
             }
         });
 
+        COLAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/paste.png"))); // NOI18N
         COLAR.setText("Colar Texto");
         COLAR.setToolTipText("CTRL + V");
         COLAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                COLARMouseEntered(evt);
-            }
-        });
-        COLAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                COLARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                COLARMouseClicked(evt);
             }
         });
 
+        CORTAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/cut.png"))); // NOI18N
         CORTAR.setText("Cortar Texto");
         CORTAR.setToolTipText("CTRL + X");
         CORTAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CORTARMouseEntered(evt);
-            }
-        });
-        CORTAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CORTARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CORTARMouseClicked(evt);
             }
         });
 
+        PROCURAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/find.png"))); // NOI18N
         PROCURAR.setText("Procurar Texto");
         PROCURAR.setToolTipText("CTRL + F");
         PROCURAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PROCURARMouseEntered(evt);
-            }
-        });
-        PROCURAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PROCURARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PROCURARMouseClicked(evt);
             }
         });
 
@@ -304,40 +279,30 @@ public class LIBRASOffice extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(COPIAR, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                     .addComponent(CORTAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(COLAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addComponent(COLAR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PROCURAR, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(COPIAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(COPIAR, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CORTAR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(COLAR)
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(121, 121, 121)
-                    .addComponent(PROCURAR)
-                    .addContainerGap(45, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PROCURAR)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Texto", jPanel3);
 
+        SOMAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/sum.png"))); // NOI18N
         SOMAR.setText("Inserir Soma");
         SOMAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SOMARMouseEntered(evt);
-            }
-        });
-        SOMAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SOMARActionPerformed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SOMARMouseClicked(evt);
             }
         });
 
@@ -354,10 +319,74 @@ public class LIBRASOffice extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SOMAR)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Fórmula", jPanel2);
+
+        DINHEIRO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/currency.png"))); // NOI18N
+        DINHEIRO.setText("Dinheiro");
+        DINHEIRO.setToolTipText("CTRL + SHIFT + 4");
+        DINHEIRO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DINHEIROMouseClicked(evt);
+            }
+        });
+
+        PORCENTAGEM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/percent.png"))); // NOI18N
+        PORCENTAGEM.setText("Porcentagem");
+        PORCENTAGEM.setToolTipText("CTRL + SHIFT + 5");
+        PORCENTAGEM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PORCENTAGEMMouseClicked(evt);
+            }
+        });
+
+        NUMERO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/decimal.png"))); // NOI18N
+        NUMERO.setText("Número");
+        NUMERO.setToolTipText("CTRL + SHIFT + 1");
+        NUMERO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NUMEROMouseClicked(evt);
+            }
+        });
+
+        DATA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/date.png"))); // NOI18N
+        DATA.setText("Data");
+        DATA.setToolTipText("CTRL + SHIFT + 3");
+        DATA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DATAMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NUMERO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PORCENTAGEM, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(DATA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DINHEIRO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DINHEIRO)
+                .addGap(12, 12, 12)
+                .addComponent(PORCENTAGEM)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NUMERO)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DATA)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Número", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 290, -1));
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -384,14 +413,6 @@ public class LIBRASOffice extends javax.swing.JFrame {
         //this.setLocation(0, 0);
     }//GEN-LAST:event_formWindowActivated
 
-    private void VOLTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VOLTARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:Undo", "", 0, null);
-    }//GEN-LAST:event_VOLTARActionPerformed
-
-    private void REFAZERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REFAZERActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:Redo", "", 0, null);
-    }//GEN-LAST:event_REFAZERActionPerformed
-
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
        System.out.println(evt.toString());
        jLabel2.setIcon(new ImageIcon(getClass().getResource("/GIF480/"+currOpt+"_480.gif")));
@@ -403,105 +424,163 @@ public class LIBRASOffice extends javax.swing.JFrame {
         jFrame1.setLocation(scSize.width/2-jFrame1.getSize().width/2, scSize.height/2-jFrame1.getSize().height);
     }//GEN-LAST:event_jFrame1WindowActivated
 
-    private void VOLTARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VOLTARMouseEntered
-        currOpt = "VOLTAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_VOLTARMouseEntered
+    private void NOVOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOVOMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "NOVO";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:NewDoc", "", 0, null);        
+    }//GEN-LAST:event_NOVOMouseClicked
 
-    private void REFAZERMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REFAZERMouseEntered
-        currOpt = "REFAZER";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_REFAZERMouseEntered
+    private void ABRIRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ABRIRMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "ABRIR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:OpenFromCalc", "", 0, null);
+    }//GEN-LAST:event_ABRIRMouseClicked
 
-    private void SOMARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SOMARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:AutoSum", "", 0, null);
-    }//GEN-LAST:event_SOMARActionPerformed
+    private void GUARDARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GUARDARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "GUARDAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:SaveAs", "", 0, null);
+    }//GEN-LAST:event_GUARDARMouseClicked
 
-    private void SOMARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SOMARMouseEntered
-        currOpt = "SOMAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_SOMARMouseEntered
+    private void IMPRIMIRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IMPRIMIRMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "IMPRIMIR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:Print", "", 0, null);
+    }//GEN-LAST:event_IMPRIMIRMouseClicked
 
-    private void PROCURARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PROCURARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:SearchDialog", "", 0, null);
-    }//GEN-LAST:event_PROCURARActionPerformed
+    private void PDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PDFMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "PDF";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:ExportDirectToPDF", "", 0, null);
+    }//GEN-LAST:event_PDFMouseClicked
 
-    private void PROCURARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PROCURARMouseEntered
-        currOpt = "PROCURAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_PROCURARMouseEntered
+    private void COPIARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_COPIARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "COPIAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else  xDHelper.executeDispatch(xDProver, ".uno:Copy", "", 0, null);
+    }//GEN-LAST:event_COPIARMouseClicked
 
-    private void CORTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CORTARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:Cut", "", 0, null);
-    }//GEN-LAST:event_CORTARActionPerformed
+    private void CORTARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CORTARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "CORTAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:Cut", "", 0, null);
+    }//GEN-LAST:event_CORTARMouseClicked
 
-    private void CORTARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CORTARMouseEntered
-        currOpt = "CORTAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_CORTARMouseEntered
+    private void COLARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_COLARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "COLAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:Paste", "", 0, null);
+    }//GEN-LAST:event_COLARMouseClicked
 
-    private void COLARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_COLARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:Paste", "", 0, null);
-    }//GEN-LAST:event_COLARActionPerformed
+    private void PROCURARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PROCURARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "PROCURAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:SearchDialog", "", 0, null);
+    }//GEN-LAST:event_PROCURARMouseClicked
 
-    private void COLARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_COLARMouseEntered
-        currOpt = "COLAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_COLARMouseEntered
+    private void SOMARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SOMARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "SOMAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else{
+            PropertyValue[] args1 = new PropertyValue[1];
+            args1[0] = new PropertyValue();
+            args1[0].Name = "ToPoint";
+            args1[0].Value = "$A$11";
+            xDHelper.executeDispatch(xDProver, ".uno:GoToCell", "", 0, args1);
+            PropertyValue[] args2 = new PropertyValue[1];
+            args2[0] = new PropertyValue();
+            args2[0].Name = "StringName";
+            args2[0].Value = "=SUM(A1:A10)";
+            xDHelper.executeDispatch(xDProver, ".uno:EnterString", "", 0, args2);
+        }
+    }//GEN-LAST:event_SOMARMouseClicked
 
-    private void COPIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_COPIARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:Copy", "", 0, null);
-    }//GEN-LAST:event_COPIARActionPerformed
+    private void DINHEIROMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DINHEIROMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "FORMAT_DINHEIRO";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:NumberFormatCurrency", "", 0, null);
+    }//GEN-LAST:event_DINHEIROMouseClicked
 
-    private void COPIARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_COPIARMouseEntered
-        currOpt = "COPIAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_COPIARMouseEntered
+    private void PORCENTAGEMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PORCENTAGEMMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "FORMAT_PORCENT";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:NumberFormatPercent", "", 0, null);
+    }//GEN-LAST:event_PORCENTAGEMMouseClicked
 
-    private void IMPRIMIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IMPRIMIRActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:Print", "", 0, null);
-    }//GEN-LAST:event_IMPRIMIRActionPerformed
+    private void NUMEROMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NUMEROMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "FORMAT_NUMERO";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:NumberFormatDecimal", "", 0, null);
+    }//GEN-LAST:event_NUMEROMouseClicked
 
-    private void IMPRIMIRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IMPRIMIRMouseEntered
-        currOpt = "IMPRIMIR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_IMPRIMIRMouseEntered
+    private void DATAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DATAMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "FORMAT_DATA";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:NumberFormatDate", "", 0, null);
+    }//GEN-LAST:event_DATAMouseClicked
 
-    private void GUARDARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GUARDARActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:SaveAs", "", 0, null);
-    }//GEN-LAST:event_GUARDARActionPerformed
+    private void VOLTARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VOLTARMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "VOLTAR";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:Undo", "", 0, null);
+    }//GEN-LAST:event_VOLTARMouseClicked
 
-    private void GUARDARMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GUARDARMouseEntered
-        currOpt = "GUARDAR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_GUARDARMouseEntered
+    private void REFAZERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REFAZERMouseClicked
+        if(evt.getClickCount() == 1){
+            currOpt = "REFAZER";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        else xDHelper.executeDispatch(xDProver, ".uno:Redo", "", 0, null);
+    }//GEN-LAST:event_REFAZERMouseClicked
 
-    private void PDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PDFActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:ExportDirectToPDF", "", 0, null);
-    }//GEN-LAST:event_PDFActionPerformed
-
-    private void PDFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PDFMouseEntered
-        currOpt = "PDF";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_PDFMouseEntered
-
-    private void NOVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOVOActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:NewDoc", "", 0, null);
-    }//GEN-LAST:event_NOVOActionPerformed
-
-    private void NOVOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOVOMouseEntered
-        currOpt = "NOVO";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_NOVOMouseEntered
-
-    private void ABRIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABRIRActionPerformed
-        xDHelper.executeDispatch(xDProver, ".uno:OpenFromCalc", "", 0, null);
-    }//GEN-LAST:event_ABRIRActionPerformed
-
-    private void ABRIRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ABRIRMouseEntered
-        currOpt = "ABRIR";
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
-    }//GEN-LAST:event_ABRIRMouseEntered
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if(jTabbedPane1.getSelectedIndex() == 0){
+            currOpt = "OPC_DOCUMENTO";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        if(jTabbedPane1.getSelectedIndex() == 1){
+            currOpt = "OPC_TEXTO";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        if(jTabbedPane1.getSelectedIndex() == 2){
+            currOpt = "OPC_FORMULA";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+        if(jTabbedPane1.getSelectedIndex() == 3){
+            currOpt = "OPC_FORMAT";
+            jLabel1.setIcon(new ImageIcon(getClass().getResource("/GIF240/"+currOpt+"_240.gif")));
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments
@@ -536,45 +615,32 @@ public class LIBRASOffice extends javax.swing.JFrame {
                 new LIBRASOffice().setVisible(true);             
             }
         });
+        System.out.println(System.getProperty("user.dir"));
 
-        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/FirstSteps/First_Contact#Getting_Started */
-        
-        /* Inicializar instância local do LibreOffice (bootstrap) a partir do executável soffice encontrado na PATH do sistema, obtendo um contexto global
-           Outra opção seria utilizar a biblioteca BootstrapSocketConnector para se conectar a uma instância do LibreOffice já em execução com executável encontrado no PATH informado    
-           https://wiki.openoffice.org/wiki/Documentation/DevGuide/ProUNO/Java/Transparent_Use_of_Office_UNO_Components */
         XComponentContext xCxt = com.sun.star.comp.helper.Bootstrap.bootstrap();
         //XComponentContext xCxt = BootstrapSocketConnector.bootstrap("C:/Program Files (x86)/LibreOffice 4/program/");
 
         XMultiComponentFactory xSMng = xCxt.getServiceManager();
 
         Object desk = xSMng.createInstanceWithContext("com.sun.star.frame.Desktop", xCxt);
-        
-        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Using_the_Desktop */
         xDesk = UnoRuntime.queryInterface(XDesktop.class, desk);
-        
-        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/Spreadsheets/Handling_Spreadsheet_Documents_Files#Creating_and_Loading_Spreadsheet_Documents
-           https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Handling_Documents#Loading_Documents */
-        XComponentLoader xCLoader =  (XComponentLoader)UnoRuntime.queryInterface(XComponentLoader.class, desk);          
+                
+        XComponentLoader xCLoader =  (XComponentLoader)UnoRuntime.queryInterface(XComponentLoader.class, desk);
+                
         XComponent xDoc = xCLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, null);
-
-        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Component/Frames#Frame_Setup
-          https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Creating_Frames_Manually#Frame_Creation*/
+        
         XFrame dFrame = xDesk.getCurrentFrame();
         while (dFrame == null) dFrame = xDesk.getCurrentFrame();
-                
+
         XTitle wTitle = UnoRuntime.queryInterface(XTitle.class, dFrame);
         wTitle.setTitle(wTitle.getTitle().replace("Libre", "LIBRAS"));
 
-        /* https://www.openoffice.org/api/docs/common/ref/com/sun/star/frame/XDispatchHelper.html */
         Object disper = xSMng.createInstanceWithContext("com.sun.star.frame.DispatchHelper", xCxt);
         xDHelper = UnoRuntime.queryInterface(XDispatchHelper.class, disper);
-        
-        /* https://wiki.openoffice.org/wiki/Documentation/DevGuide/OfficeDev/Dispatch_Results */
         xDProver = UnoRuntime.queryInterface(XDispatchProvider.class, dFrame);
-                
-        /* http://api.libreoffice.org/examples/DevelopersGuide/OfficeDev/TerminationTest/TerminationTest.java 
-           http://api.libreoffice.org/examples/DevelopersGuide/OfficeDev/TerminationTest/TerminateListener.java */
-        xTL xTL0 = new xTL();
+        
+        //xDHelper.executeDispatch(xDProver, ".uno:SaveAs", "", 0, null);
+        xTL xTL0 = new xTL(); 
         xDesk.addTerminateListener(xTL0);
         synchronized(xTL0){
             try { xTL0.wait(); }
@@ -589,10 +655,14 @@ public class LIBRASOffice extends javax.swing.JFrame {
     private javax.swing.JButton COLAR;
     private javax.swing.JButton COPIAR;
     private javax.swing.JButton CORTAR;
+    private javax.swing.JButton DATA;
+    private javax.swing.JButton DINHEIRO;
     private javax.swing.JButton GUARDAR;
     private javax.swing.JButton IMPRIMIR;
     private javax.swing.JButton NOVO;
+    private javax.swing.JButton NUMERO;
     private javax.swing.JButton PDF;
+    private javax.swing.JButton PORCENTAGEM;
     private javax.swing.JButton PROCURAR;
     private javax.swing.JButton REFAZER;
     private javax.swing.JButton SOMAR;
@@ -603,11 +673,12 @@ public class LIBRASOffice extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
     private static XDesktop xDesk;
     private static XDispatchHelper xDHelper;
     private static XDispatchProvider xDProver;
-    private String currOpt = "OPCAO";
+    private String currOpt = "FUNCAO";
     private Dimension scSize = Toolkit.getDefaultToolkit().getScreenSize();
 }
