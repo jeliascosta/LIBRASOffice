@@ -1,7 +1,7 @@
 # LIBRASOffice
 Este é o repositório oficial do LIBRASOffice, um aplicativo desktop que se propõe a auxiliar um usuário surdo de computador - que geralmente não domina o português (língua escrita), mas sim a Língua Brasileira de Sinais (LIBRAS) - a utilizar a suíte de escritório LibreOffice, livre e de código aberto, de forma autônoma. LIBRASOffice é um projeto acadêmico idealizado e atualmente desenvolvido no Laboratório de Informática para Educação da Universidade Federal do Rio de Janeiro (LIpE/UFRJ).
 
-Desenvolvedor principal: Jônathan Elias Sousa da Costa (jelias@poli.ufrj.br)
+Desenvolvedor principal: Jônathan Elias Sousa da Costa (jelias@poli.ufrj.br), graduando em Engenharia de Computação e Informação na UFRJ.
 Contato do LIpE: lipe@poli.ufrj.br
 
 # Organização do Repositório
