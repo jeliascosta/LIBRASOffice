@@ -4,6 +4,6 @@ Este é o repositório oficial do LIBRASOffice, um aplicativo desktop que se pro
 Desenvolvedor principal: Jônathan Elias Sousa da Costa (jelias@poli.ufrj.br)
 Contato do LIpE: lipe@poli.ufrj.br
 
-#Organização do Repositório
+# Organização do Repositório
 Diretório "Backend": guarda um clone do repositório core do LibreOffice (LO) que está sendo atualmente utilizado pelo LIBRASOffice (LASO). Em cima do clone são realizadas modificações em alguns módulos do LO, a nível de código-fonte C++, para o bom funcionamento do LASO. Porcuramos manter o branch utilizado sempre atualizado, ou seja, correspondendo a uma das últimas versões estáveis do LibreOffice (p. ex: LO Estável -> ABRIL/2017 -> libreoffice-5-2-7).
 Diretório "Frontend": guarda o código-base Java do LASO que efetivemente implementa a interação visual em LIBRAS com o LibreOffice.
