@@ -17,7 +17,7 @@ $server_email = 'lipe@poli.ufrj.br';  // Your server email to authenticate outgo
  
 $name     = $_POST["fname"];
 $email    = $_POST["email"];
-$website  = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$website  = (isset($_SERVER['https://github.com/jeliascosta/LIBRASOffice.git']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $website = dirname($website);
 $website = dirname($website);
 
