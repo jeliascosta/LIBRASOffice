@@ -8,7 +8,7 @@ error_reporting(0);
  
 $to    = "Laboratório de Informática para Educação UFRJ"; // <--- Your email ID here
 
-$server_email = 'smtp.gmail.com';  // Your server email to authenticate outgoing emails. eg: name@yourdomain.com
+$server_email = 'lipe@poli.ufrj.br';  // Your server email to authenticate outgoing emails. eg: name@yourdomain.com
 /*
  * ------------------------------------
  * END CONFIGURATION
