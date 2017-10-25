@@ -6,9 +6,9 @@ error_reporting(0);
  * ------------------------------------
  */
  
-$to    = "test@surjithctly.in"; // <--- Your email ID here
+$to    = "Laboratório de Informática para Educação UFRJ"; // <--- Your email ID here
 
-$server_email = 'webmaster@web3canvas.com';  // Your server email to authenticate outgoing emails. eg: name@yourdomain.com
+$server_email = 'smtp.gmail.com';  // Your server email to authenticate outgoing emails. eg: name@yourdomain.com
 /*
  * ------------------------------------
  * END CONFIGURATION
@@ -23,9 +23,9 @@ $website = dirname($website);
 
 if (isset($email) && isset($name)) {
 
-	$subject  = "New Contact Message from $name"; // <--- Contact for Subject here.
+	$subject  = "Nova mensagem de: $name"; // <--- Contact for Subject here.
  
-	$msg      = 'Hello Admin, <br/> <br/> Here are the Message details:';
+	$msg      = 'Olá, administrador <br/> <br/> Aqui estão os detalhes da mensagem:';
 	$msg     .= ' <br/> <br/> <table border="1" cellpadding="6" cellspacing="0" style="border: 1px solid  #eeeeee;">';
 	foreach ($_POST as $label => $value) {
 	    $msg .= "<tr><td width='100'>". ucfirst($label) . "</td><td width='300'>" . $value . " </tr>";
