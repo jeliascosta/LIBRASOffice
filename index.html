@@ -1,10 +1,10 @@
 <!DOCTYPE html> 
-<html lang="en"> 
+<html lang="pt-br"> 
     <!-- 
 
 Page    : LIPE - LibrasOffice
-Version : 0.9
-Autor   : Miguel Teixeira (Customizacao)
+Version : 0.1
+Autor   : Miguel Teixeira
 
  -->     
     <head> 
@@ -12,8 +12,7 @@ Autor   : Miguel Teixeira (Customizacao)
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-        <meta name="description" content="Mobland - Mobile App Landing Page Template"> 
-        <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive"> 
+        <meta name="keywords" content="LIpE, LIBRASOffice, UFRJ"> 
         <title>LIBRASOffice - LIpE - UFRJ</title>         
         <!-- Font -->         
         <link rel='dns-prefetch' href='//fonts.googleapis.com'> 
@@ -41,6 +40,9 @@ Autor   : Miguel Teixeira (Customizacao)
         <link href="css/style.css" rel="stylesheet"> 
         <link rel="stylesheet" href="vendors\pe-icon\css\pe-icon-7-stroke.css">
         <link rel="stylesheet" href="vendors\pe-icon\css\helper.css">
+        
+        
+     
     </head>     
     <body data-scroll-animation="true"> 
         <!--===================== Header =====================-->         
@@ -108,12 +110,7 @@ Autor   : Miguel Teixeira (Customizacao)
                 </div>                 
             </div>             
         </section>         
-        <!--//End Header -->         
-        <!--===================== Clients =====================-->         
-        <!--//End Clients -->         
-        <!--===================== Beautiful landing Page =====================-->         
-        <!--//End Beautiful landing Page -->         
-        <!--===================== App landing Page =====================-->         
+        <!--//End Header -->   
         <div class="clearfix"></div>         
         <section class="app-landing light-bg" style="margin-top: -48px;"> 
             <div class="container"> 
@@ -132,10 +129,7 @@ Autor   : Miguel Teixeira (Customizacao)
 </div>                     
                 </div>                 
             </div>             
-        </section>         
-        <!--//End App landing Page -->         
-        <!--===================== Features =====================-->         
-        <!--//End Features -->         
+        </section>             
         <!--===================== Video section =====================-->         
         <section class="space light-bg" id="assista-ao-video"> 
             <div class="container"> 
@@ -159,14 +153,7 @@ Autor   : Miguel Teixeira (Customizacao)
                     </div>                     
                 </div>                 
             </div>             
-        </section>         
-        <!--//End Video section -->         
-        <!--===================== Featured 1 =====================-->         
-        <!--//End Featured 2 -->         
-        <!--===================== Featured 2 =====================-->         
-        <!--//End Featured 2 -->         
-        <!--===================== Featured 3 =====================-->         
-        <!--//End Featured 3 -->         
+        </section>              
         <!--===================== Testimonial =====================-->         
         <section class="space light-bg"> 
             <div class="container"> 
@@ -236,18 +223,7 @@ Autor   : Miguel Teixeira (Customizacao)
                 </div>                 
             </div>             
         </section>         
-        <!--//End Testimonial -->         
-        <!--===================== Gallery =====================-->         
-        <!--//End Gallery -->         
-        <!--===================== Tab =====================-->         
-        <!--//End Tab -->         
-        <!--===================== Detailed Slider =====================-->         
-        <!--//End Detailed Slider -->         
-        <!--===================== Pricing =====================-->         
-        <!--//End Pricing -->         
-        <!--===================== FAQ =====================-->         
-        <!--//End FAQ -->         
-        <!--===================== Our team =====================-->         
+        <!--===================== team =====================-->         
         <section class="space" id="colaboradores"> 
             <div class="container"> 
                 <div class="row justify-content-center mb-5"> 
@@ -330,8 +306,7 @@ Autor   : Miguel Teixeira (Customizacao)
                             <span class="text-muted">Voluntária - LIpE</span>                     
                 </div>                 
             </div>             
-        </section>         
-        <!--//End Our team -->         
+        </section>              
         <!--===================== Map =====================-->         
         <!-- Things to modify: Your Location Latitude, Longitude, Map Zoom and Google Maps API Key. [[[ See Docs ]]]  -->         
         <div class="google-map" id="gmaps" data-lat="-22.863084" data-lon="-43.231650" data-maps-apikey="AIzaSyCcFt4N1nm9tgC9fMgeT-HikSG5KT0uJ9Q" data-zoom="11"></div>         
@@ -342,27 +317,27 @@ Autor   : Miguel Teixeira (Customizacao)
                 <div class="row"> 
                     <div class="col-md-8"> 
                         <div class="contact-form reveal fadeInUp"> 
-                            <form id="phpcontactform" action="php/contact.php" method="post"> 
+                            <form id="contactForm" action="mailto:lipe@poli.ufrj.br" method="post" target="_blank"> 
                                 <div class="row"> 
                                     <div class="col-md-12"> 
                                         <h2 class="center-block mt-4 mb-4">Fale Conosco</h2> 
                                     </div>                                     
                                     <div class="col-md-6"> 
                                         <div class="form-group"> 
-                                            <input type="text" class="form-control" name="name" placeholder="Nome"> 
+                                            <input type="text" class="form-control" name="nome" placeholder="Nome"> 
                                         </div>                                         
                                     </div>                                     
                                     <div class="col-md-6"> 
                                         <div class="form-group"> 
-                                            <input type="email" class="form-control" name="email" placeholder="E-mail"> 
+                                            <input type="text" class="form-control" name="e-mail" placeholder="E-mail"> 
                                         </div>                                         
                                     </div>                                     
                                     <div class="col-md-12"> 
                                         <div class="form-group"> 
-                                            <textarea class="form-control" name="message" placeholder="Mensagem" rows="3"></textarea>                                             
-                                        </div>                                         
+                                            <textarea class="form-control" name="mensagem" placeholder="Mensagem" rows="3"></textarea>                                             
+                                        </div>                                      
                                         <div class="text-center"> 
-                                            <button type="submit" id="js-contact-btn" class="btn btn-primary mt-4">Enviar Mensagem
+                                            <button type="submit" id="enviar" class="btn btn-primary mt-4">Enviar Mensagem
                                                 <span class="pe-7s-angle-right-circle ml-3"></span> 
                                             </button>                                             
                                             <div id="js-contact-result" data-success-msg="Obrigado por entrar em contato conosco :)" data-error-msg="Desculpe, algo de errado ocorreu :( "></div>                                             
@@ -403,10 +378,7 @@ Autor   : Miguel Teixeira (Customizacao)
                     </div>                     
                 </div>                 
             </div>             
-        </section>         
-        <!--//End Contact -->         
-        <!--===================== variation =====================-->         
-        <!--//End variation -->         
+        </section>                 
         <!--===================== footer =====================-->         
         <footer class="space"> 
             <div class="container"> 
@@ -419,9 +391,8 @@ Autor   : Miguel Teixeira (Customizacao)
                 </div>                 
             </div>             
         </footer>         
-        <!--//End footer -->         
-        <!-- jQuery first, then Tether, then Bootstrap JS. -->         
-        <script src="vendors/jquery/js/jquery-3.2.1.min.js"></script>         
+        <!--//End footer -->            
+        <script src="vendors/jquery/js/jquery-3.2.1.min.js"></script> 
         <script src="vendors/bootstrap/js/popper.min.js"></script>         
         <script src="vendors/bootstrap/js/bootstrap.min.js"></script>         
         <!-- Slick JS -->         
